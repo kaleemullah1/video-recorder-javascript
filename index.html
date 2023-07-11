@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<script type="text/javascript" src="video-record.js"></script>
+
+	<style>
+		body {
+			background-color: #F5F5F5;
+		}
+
+		.players_control_cont {
+			margin-top: 10px;
+		}
+
+		.btn {
+			width: 80px;
+			height: 35px;
+			color: #ffffff;
+			background: #4BB9FC;
+			border-color: #4BB9FC;
+			border-radius: 5px;
+		}
+
+		.btn-green {
+			background: darkseagreen;
+			border-color: darkseagreen;
+		}
+
+		.btn-disabled {
+			background: #adadad;
+			border-color: #adadad;
+		}
+
+		.btn-red {
+			background: #fc4e4e;
+			border-color: #fc4e4e;
+		}
+
+		video {
+			width: 400px;
+			height: 300px;
+			background-color: #000000;
+		}
+
+		.overlay {
+			position: fixed;
+			/* Sit on top of the page content */
+			display: none;
+			/* Hidden by default */
+			width: 100%;
+			/* Full width (cover the whole page) */
+			height: 100%;
+			/* Full height (cover the whole page) */
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			/* Black background with opacity */
+			z-index: 2;
+			/* Specify a stack order in case you're using a different order for other elements */
+			cursor: pointer;
+			/* Add a pointer on hover */
+			color: #ffffff;
+		}
+
+		.countdown{
+			padding-top: 200px;
+			padding-left: 150px;
+			font-size: 60px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>Record Video</h3>
+	<br>
+
+	<div>
+		<video id="previewVideo" class="video_element_style" autoplay muted playsinline>
+
+		</video>
+
+		<video id="recordedVideo" class="video_element_style" style="display: none;" playsinline>
+
+		</video>
+
+		<div class="overlay" id="overlay" style="display: none;">
+			<div id="timer" class="countdown"></div>
+		</div>
+	</div>
+
+	<div class="players_control_cont">
+		<div class="buttons_control">
+			<button id="record_btn_disabled" class="btn btn-disabled record_btn_disabled" disabled="">Record</button>
+			<button id="record_btn" class="btn record_btn" title="Record" style="display: none">Record</button>
+			<button id="stop_btn" class="btn btn-red stop_btn" title="Stop" style="display: none">Stop</button>
+			<button id="play_btn_disabled" class="btn btn-disabled play_btn_disabled" disabled="">Play</button>
+			<button id="play_btn_active" class="btn btn-green play_btn_active" title="Play"
+				style="display: none">Play</button>
+			<button id="pause_btn" class="btn btn-red pause_btn" title="Pause" style="display: none">Pause</button>
+
+			<span id="recording_time" title="Recording Time">00:00</span>
+
+		</div>
+	</div>
+
+	<div>
+		<h4>Video Detail</h4>
+		<div>
+			<strong> Size in Bytes : </strong><span id="video_size"></span>
+		</div>
+		<br>
+		<diV>
+			<strong>Error:</strong>
+		</diV>
+		<div id="video_error" style="display: none;"></div>
+	</div>
+</body>
+
+</html>
